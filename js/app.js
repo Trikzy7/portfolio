@@ -36,66 +36,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     // --------- EXECUTE FUNCTION
     
     openMenuMobile(triggerOpenMenu, triggerCloseMenu, menu_navigation);
-    scrollProgress (document.querySelector('.progressScroll'));
-
-    // if (document.querySelector('.content_home_middle')) scrollProgressFull(main_content, main_aside, top_info) ;
 
 
-        // PROGRESS SCROLL TO DO
-    // if (document.querySelector('.content_home_middle')) {
-    //     scrollProgress (document.querySelector('.progressScroll'));
-    //     let i = 0 ;
-    
-    //     document.addEventListener('wheel', (e)=> {
-    //         i++ ;
-    
-    //         if (i == 100 ) {
-    //             if (document.querySelector('.content_home_middle')) {
-    
-    //                 removeHome(document.querySelector('.content_home_middle'), 
-    //                             document.querySelector('.content_home_bottom'), 
-    //                             document.querySelector('.container_lorem'),
-    //                             document.querySelector('.container_scroll_prog'),
-    //                             document.querySelector('.coordinate_container') );
-    //             }
-        
-    //             if (!document.querySelector('.projects_content')) {
-    //                 setTimeout(() => {
-    //                     displayProjects(main_content, main_aside, top_info);
-            
-                        
-    //                     sliderProject(document.querySelectorAll('.container_one_project'),
-    //                                     document.querySelector('.arrow_previous'),
-    //                                     document.querySelector('.arrow_next'))
-        
-    //                     requestAnimationFrame( animDisplayProjectTransi ) ;
-                        
-    //                 }, 1100);
-    //             }
-    
-    //             i = 0 ;
-    //         }
-
-
-    //         onClickElement(container_icon_rect, function() {
-    //             i = 0;
-    //         })
-    
-    //         console.log(i);
-            
-    //     })
-
-    // }
-
-    // document.addEventListener('wheel', ()=> {
-    //     console.log(scrollProgressFull());
-    // })
-
-    // if (scrollProgressFull()) {
-    //     console.log("T'as réussiiiiiiiiii");
-    // }
-
-
+  
 
  
     // CLICK LOGO HOME & MY NAME
@@ -146,6 +89,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
 
+
+
+
 })
 
 
@@ -154,6 +100,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
 
+let i = 0;
+document.addEventListener("wheel", scrollProgress);
 
 
 
@@ -188,98 +136,26 @@ function hideMenuMobile(menu) {
 }
 
 
-function scrollProgress (homeProgressScroll) {
-    let i = 0;
 
-    // let completed = false ;
+function scrollProgress(e) {
 
-    document.addEventListener('wheel', (e)=> {
+    let progressScrollSvg = document.querySelector('.progressScroll');
 
-        // Know the direction : UP || DOWN
-        var dir = Math.sign(e.deltaY);
+    // Know the direction : UP || DOWN
+    let dir = Math.sign(e.deltaY);
 
-        // DOWN
-        if (dir > 0) {
+    i += dir;
+    i = i < 0 ? 0 : i;
+    i = i > 100 ? 100 : i;
 
-            if (i < 100) {
-                i++;
-            }
-            else {
-                i = 100 ;
-            }
-        } 
-        // UP
-        else if (dir < 0) {
+    if (i === 100)  {
+        goToProjects(document.querySelector('.main_content'), document.querySelector('.main_aside'), document.querySelector('.top_info')) ;
+        i =0 ;
+    }
 
-            if (i > 0) {
-                i--;
-            }
-            else {
-                i = 0 ;
-            }
-            
-        }
-
-
-        homeProgressScroll.style.strokeDashoffset = 60 - (60 * i) / 100 ;
-
-        // console.log(i);
-
-        // if (i == 100) {
-        //     console.log("I == 1000000000000");
-        // }
-
-        // completed =  i == 100 ? true : false ;
-        // return i ;
-
-        // console.log("Le rond se rempli");
-        
-    })
-
+    progressScrollSvg.style.strokeDashoffset = 60 - (60 * i) / 100;
 }
 
-// TODO 
-// function scrollProgressFull(progressScroll, main_content, main_aside, top_info) {
-
-
-
-//     document.addEventListener('wheel', (e)=> {
-
-//         // Know the direction : UP || DOWN
-//         var dir = Math.sign(e.deltaY);
-
-//         // DOWN
-//         if (dir > 0) {
-
-//             if (progressScroll < 100) {
-//                 progressScroll++;
-//             }
-//             else if (progressScroll == 100) {
-                
-//                 console.log("IL est à 10000");
-//                 // goToProjects(main_content, main_aside, top_info) ;
-//                 progressScroll = 101 ;
-//             }
-//         } 
-//         // UP
-//         else if (dir < 0) {
-
-//             if (progressScroll > 0) {
-//                 progressScroll--;
-//             }
-//             else {
-//                 progressScroll = 0 ;
-//             }
-            
-//         }
-
-//         console.log(progressScroll);
-
-
-//     })
-
-    
-// }
 
 
 function allowHorizontalScroll(container) {
@@ -358,6 +234,10 @@ function onClickElement(trigger, funct) {
 
 // GO TO 
 function goToHome(main_content, main_aside, top_info) {
+
+    document.addEventListener("wheel", scrollProgress);
+
+
     if (document.querySelector('.projects_content')) {
         removeProjects(document.querySelector('.projects_content'), 
                         document.querySelector('.container_title_projects'),
@@ -375,8 +255,14 @@ function goToHome(main_content, main_aside, top_info) {
             displayHome(main_content, main_aside, top_info) ;
 
             requestAnimationFrame( animDisplayHomeTransi )
+
+            // let i = 0;
             
-            scrollProgress (document.querySelector('.progressScroll'));
+            // // document.addEventListener("wheel", (e)=> {
+            // //     scrollProgress(e, document.querySelector('.progressScroll'))
+            // // }) ;
+
+            // console.log(document.querySelector('.progressScroll'));
 
 
         }, 1100);
@@ -385,6 +271,9 @@ function goToHome(main_content, main_aside, top_info) {
 
 
 function goToProjects(main_content, main_aside, top_info) {
+
+    document.removeEventListener("wheel", scrollProgress);
+
     if (document.querySelector('.content_home_middle')) {
 
         removeHome(document.querySelector('.content_home_middle'), 
@@ -417,6 +306,9 @@ function goToProjects(main_content, main_aside, top_info) {
 
 
 function goToAbout(main_content, main_aside, top_info) {
+
+    document.removeEventListener("wheel", scrollProgress);
+
     if (document.querySelector('.content_home_middle')) {
 
         removeHome(document.querySelector('.content_home_middle'), 
@@ -886,12 +778,6 @@ function displayAbout(main_content, main_aside, top_info) {
 
 
 //#endregion SLIDER 4
-
-
-
-
-
-
 
 
 
