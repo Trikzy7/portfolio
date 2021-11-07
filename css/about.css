@@ -79,6 +79,8 @@
 
 
     /* background-color: orange; */
+
+
 }
 
 .about_content::-webkit-scrollbar {
@@ -100,6 +102,8 @@
     
 
     display: flex;
+
+    scrollbar-width: none;
 
 
     /* background-color: blue; */
