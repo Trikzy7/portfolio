@@ -222,6 +222,13 @@
     font-size: 19px;
 }
 
+.top_info_type_project {
+    font-size: 19px;
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
 .top_info_txt_project {
     margin-bottom: 50px;
 

@@ -169,53 +169,6 @@ function allowHorizontalScroll(container) {
             container.scrollLeft += evt.deltaY;
         });
 
-
-
-        // ------------------------ Scroll Grab
-
-        // container.style.cursor = "grab";
-
-        // let pos = { top: 0, left: 0, x: 0, y: 0 };
-
-
-        // const mouseDownHandler = function (e) {
-        //     container.style.cursor = 'grabbing';
-        //     container.style.userSelect = 'none';
-
-        //     pos = {
-        //         left: container.scrollLeft,
-        //         top: container.scrollTop,
-        //         // Get the current mouse position
-        //         x: e.clientX,
-        //         y: e.clientY,
-        //     };
-
-        //     document.addEventListener('mousemove', mouseMoveHandler);
-        //     document.addEventListener('mouseup', mouseUpHandler);
-        // };
-
-        // const mouseMoveHandler = function (e) {
-        //     // How far the mouse has been moved
-        //     const dx = e.clientX - pos.x;
-        //     const dy = e.clientY - pos.y;
-
-        //     // Scroll the element
-        //     container.scrollTop = pos.top - dy;
-        //     container.scrollLeft = pos.left - dx;
-        // };
-
-        // const mouseUpHandler = function () {
-        //     container.style.cursor = 'grab';
-        //     container.style.removeProperty('user-select');
-
-        //     document.removeEventListener('mousemove', mouseMoveHandler);
-        //     document.removeEventListener('mouseup', mouseUpHandler);
-        // };
-
-        
-        // container.addEventListener('mousedown', mouseDownHandler);
-        
-
 }
 
 
@@ -523,7 +476,7 @@ function displayHome(main_content, main_aside, top_info) {
 function displayProjects(main_content, main_aside, top_info) {
     let projects_content  = create('div', main_content, null, 'projects_content' ) ;
 
-    displayPorjectContent(projects_content, allProjectData) ;
+    displayProjectContent(projects_content, allProjectData) ;
 
 
 
@@ -546,7 +499,7 @@ function displayProjects(main_content, main_aside, top_info) {
 }
 
 
-function displayPorjectContent(projects_content, allProjectData ) {
+function displayProjectContent(projects_content, allProjectData ) {
 
     const classContainerProject = ['container_first_project', 'container_second_project', 'container_third_project'] ;
 
@@ -580,9 +533,11 @@ function displayPorjectContent(projects_content, allProjectData ) {
         if (aProjectData['contentTop']['topInfo']['subTitle']) {
             create('span', top_info_title_project, aProjectData['contentTop']['topInfo']['subTitle'], 'top_info_subTitle_project' )
         }
+        let top_info_type_project = create('p', container_top_info_project, aProjectData['contentTop']['topInfo']['type'], 'top_info_type_project') ;
         let top_info_txt_project = create('p', container_top_info_project, aProjectData['contentTop']['topInfo']['txt'], 'top_info_txt_project') ;
     
-        let top_info_link_project = create('a', container_top_info_project, 'Visit WebSite 🡢', 'top_info_link_project' ) ;
+        let top_info_link_project = create('a', container_top_info_project, null, 'top_info_link_project' ) ;
+        top_info_link_project.innerHTML = 'Visit WebSite <i class="fas fa-arrow-right"></i> ' ;
         top_info_link_project.href = aProjectData['contentTop']['topInfo']['urlLink'] ;
         top_info_link_project.target = '_blank' ;
     
@@ -859,7 +814,8 @@ function displayAbout(main_content, main_aside, top_info) {
     contact_git_link.target = "_blank" ;
 
         // ---------------- SCROLL TXT
-    let txt_scroll_right = create('p', about_content_bottom, "SCROLL 🡢", "txt_scroll_right") ;
+    let txt_scroll_right = create('p', about_content_bottom, null, "txt_scroll_right") ;
+    txt_scroll_right.innerHTML = ' SCROLL <i class="fas fa-arrow-right"></i> ' ;
 
 
 //#endregion BOTTOM
