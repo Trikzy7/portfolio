@@ -144,7 +144,7 @@ function scrollProgress(e) {
     // Know the direction : UP || DOWN
     let dir = Math.sign(e.deltaY);
 
-    i += dir;
+    i += (dir * 4);
     i = i < 0 ? 0 : i;
     i = i > 100 ? 100 : i;
 
@@ -250,23 +250,15 @@ function goToHome(main_content, main_aside, top_info) {
                     document.querySelector('.coordinate_container')) ;
     }
 
-    if (!document.querySelector('.content_home_middle')) {
-        setTimeout(() => {
-            displayHome(main_content, main_aside, top_info) ;
+    setTimeout(() => {
+        if (!document.querySelector('.content_home_middle')) {
+                displayHome(main_content, main_aside, top_info) ;
+    
+                requestAnimationFrame( animDisplayHomeTransi )
 
-            requestAnimationFrame( animDisplayHomeTransi )
+        }
+    }, 1100);
 
-            // let i = 0;
-            
-            // // document.addEventListener("wheel", (e)=> {
-            // //     scrollProgress(e, document.querySelector('.progressScroll'))
-            // // }) ;
-
-            // console.log(document.querySelector('.progressScroll'));
-
-
-        }, 1100);
-    }
 }
 
 
@@ -289,19 +281,21 @@ function goToProjects(main_content, main_aside, top_info) {
                     document.querySelector('.coordinate_container')) ;
     }
 
-    if (!document.querySelector('.projects_content')) {
-        setTimeout(() => {
-            displayProjects(main_content, main_aside, top_info);
+    setTimeout(() => {
+        if (!document.querySelector('.projects_content')) {
+                displayProjects(main_content, main_aside, top_info);
+    
+                
+                sliderProject(document.querySelectorAll('.container_one_project'),
+                                document.querySelector('.arrow_previous'),
+                                document.querySelector('.arrow_next'))
+    
+                requestAnimationFrame( animDisplayProjectTransi ) ;
 
-            
-            sliderProject(document.querySelectorAll('.container_one_project'),
-                            document.querySelector('.arrow_previous'),
-                            document.querySelector('.arrow_next'))
+        }
+        
+    }, 1100);
 
-            requestAnimationFrame( animDisplayProjectTransi ) ;
-            
-        }, 1100);
-    }
 }
 
 
@@ -324,54 +318,55 @@ function goToAbout(main_content, main_aside, top_info) {
                         document.querySelector('.slider_arrows_container')) ;
     }
 
+    setTimeout(() => {
+        if (!document.querySelector('.about_content')) {
 
-
-    if (!document.querySelector('.about_content')) {
-        setTimeout(() => {
-            displayAbout(main_content, main_aside, top_info);
-
-            requestAnimationFrame( animDisplayAboutTransi ) ;
-
-
-            // SCROLL HORIZONTAL
-            setTimeout(() => {
-
-                let about_content_top = document.querySelector('.about_content_top') ;
-                allowHorizontalScroll(about_content_top) ;
+                displayAbout(main_content, main_aside, top_info);
+    
+                requestAnimationFrame( animDisplayAboutTransi ) ;
     
     
-                let allAboutSlide = document.querySelectorAll('.about_slide') ;
+                // SCROLL HORIZONTAL
+                setTimeout(() => {
     
-                let rectContainer = about_content_top.getBoundingClientRect() ;
-    
-    
-                about_content_top.addEventListener('wheel', ()=> {
-    
-                    allAboutSlide.forEach(aAboutSlide => {
-                        // console.log((aAboutSlide.getBoundingClientRect() ));
+                    let about_content_top = document.querySelector('.about_content_top') ;
+                    allowHorizontalScroll(about_content_top) ;
         
-                        let rectSlide = aAboutSlide.getBoundingClientRect() ;
-                        // console.log(rectSlide.x);
-    
-                        if (rectSlide.x < (rectContainer.x - 200) ) {
-                            aAboutSlide.classList.remove('aboutSlideActive') ;
-                        }
-                        else if (rectSlide.x > rectContainer.x + rectContainer.width - 350) {
-                            aAboutSlide.classList.remove('aboutSlideActive') ;
-                        }
-                        else {
-                            aAboutSlide.classList.add('aboutSlideActive') ;
-                        }
-    
-    
-                    })
-                })
-    
-    
-            }, 2000);
+        
+                    let allAboutSlide = document.querySelectorAll('.about_slide') ;
+        
+                    let rectContainer = about_content_top.getBoundingClientRect() ;
+        
+        
+                    about_content_top.addEventListener('wheel', ()=> {
+        
+                        allAboutSlide.forEach(aAboutSlide => {
+                            // console.log((aAboutSlide.getBoundingClientRect() ));
             
-        }, 1100);
-    }
+                            let rectSlide = aAboutSlide.getBoundingClientRect() ;
+                            // console.log(rectSlide.x);
+        
+                            if (rectSlide.x < (rectContainer.x - 200) ) {
+                                aAboutSlide.classList.remove('aboutSlideActive') ;
+                            }
+                            else if (rectSlide.x > rectContainer.x + rectContainer.width - 350) {
+                                aAboutSlide.classList.remove('aboutSlideActive') ;
+                            }
+                            else {
+                                aAboutSlide.classList.add('aboutSlideActive') ;
+                            }
+        
+        
+                        })
+                    })
+        
+        
+                }, 2000);
+                
+        }
+        
+    }, 1100);
+
 }
 
 
@@ -479,7 +474,7 @@ function displayHome(main_content, main_aside, top_info) {
     let content_home_middle  = create('div', main_content, null, 'content_home_middle' );
     let h1  = create('h1', content_home_middle );
     let title_first_word  = create('span', h1, 'WEB', 'title_first_word' );
-    let title_second_word  = create('span', h1, 'DEVELOPPER', 'title_second_word' );
+    let title_second_word  = create('span', h1, 'DEVELOPER', 'title_second_word' );
 
 
     let content_home_bottom  = create('div', main_content, null, 'content_home_bottom' );
@@ -813,7 +808,7 @@ function displayAbout(main_content, main_aside, top_info) {
     let container_reference_info2 = create('div', container_reference2, null,  'container_reference_info');
     create('p', container_reference_info2, 'Associate Professor', 'reference_type') ;
     create('p', container_reference_info2, 'IUT Annecy', 'reference_location') ;
-    create('p', container_reference_info2, 'luc.damas@univ-smb.fr', 'reference_mail') ;
+    create('p', container_reference_info2, 'vincent.couturier@univ-smb.fr', 'reference_mail') ;
 
 
 
@@ -849,12 +844,12 @@ function displayAbout(main_content, main_aside, top_info) {
 
     let contact_phone = create('p', about_contact, null, 'contact_phone') ;
     contact_phone.classList.add('contact_element') ;
-    contact_phone.innerHTML = '<i class="fas fa-phone-square"></i> 06 49 01 25 20' ;
+    contact_phone.innerHTML = '<i class="fas fa-phone-square"></i> +336 49 01 25 20' ;
 
     let contact_linkedin_link = create('a', about_contact, null, 'contact_linkedin_link') ;
     contact_linkedin_link.classList.add('contact_element') ;
     contact_linkedin_link.innerHTML = '<i class="fab fa-linkedin"></i> Theo Plebani' ;
-    contact_linkedin_link.href = "#" ;
+    contact_linkedin_link.href = "https://www.linkedin.com/in/theo-plebani-957a821b8/?originalSubdomain=fr" ;
     contact_linkedin_link.target = "_blank" ;
 
     let contact_git_link = create('a', about_contact, null, 'contact_git_linkcontact_git_link') ;
