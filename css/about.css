@@ -263,7 +263,147 @@
 
 
 
-            /* ------------------------------- SLIDE EXPERIENCE & QUALIFICATION ------------------------------- */
+
+
+            /* ------------------------------- SLIDE EXPERIENCE  ------------------------------- */
+
+
+
+
+.container_experience_content {
+    /* background-color: red; */
+
+    width: 80%;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_experience_content::before, .container_experience_content::after {
+
+    position: absolute;
+    left: -5px;
+
+    font-size: 23px;
+    font-family: 'La Belle Aurore', cursive;
+    color: #707070;
+}
+.container_experience_content::before {
+    content: '<p>';
+
+    top: -40px;
+}
+
+.container_experience_content::after {
+    content: '</p>';
+
+    bottom: -40px;
+}
+
+
+
+
+
+.container_experience_content_top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    /* background-color: green; */
+}
+
+
+
+
+.container_experience_img {
+    width: 25%;
+    min-height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ffffff;
+}
+
+.experience_img {
+    width: 100%;
+}
+
+
+
+
+
+
+
+.container_experience_info_content {
+    width: 73%;
+    max-width: 750px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    /* background-color: orange; */
+}
+
+.experience_info_date {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.container_experience_info_content_names_first {
+    font-size: 22px;
+}
+.container_experience_info_content_names_second {
+    margin-top: 7px;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+.container_experience_detailTxt {
+    width: 80%;
+    max-width: 750px;
+
+    font-size: 16px;
+
+    margin-top: 55px;
+
+    text-align: justify;
+
+    /* background-color: darksalmon; */
+}
+
+
+
+
+
+
+            /* ------------------------------- FIN SLIDE EXPERIENCE  ------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+            /* ------------------------------- SLIDE QUALIFICATION ------------------------------- */
 
 .slide_diploma {
     display: flex;
@@ -380,7 +520,7 @@
 
 
 
-            /* ------------------------------- SLIDE EXPERIENCE & QUALIFICATION ------------------------------- */
+            /* ------------------------------- SLIDE QUALIFICATION ------------------------------- */
 
 
 
@@ -443,7 +583,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: violet; */
+ 
 }
 
 .one_skill_type {
@@ -767,6 +907,19 @@
 
     }
 
+    .slide_experience {
+        padding-top: 100px;
+    }
+
+    .container_experience_content, .container_experience_detailTxt {
+        width: 100%;
+    }
+
+    .container_experience_detailTxt, .container_experience_info_content {
+        max-width: unset;
+    }
+
+
     .slide_diploma {
         padding-top: 100px;
     }
@@ -922,10 +1075,64 @@
 
 
 
+    .container_experience_content::before, .container_experience_content::after {
+        font-size: 18px;
+    }
 
 
 
 
+    .container_experience_content_top {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column-reverse;
+
+        align-items: center;
+    }
+    
+    
+    
+    
+    .container_experience_img {
+        width: 60%;
+      
+        margin-top: 25px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        background-color: #ffffff;
+    }
+    
+    
+    
+    .container_experience_info_content {
+        width: 100%;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    .experience_info_date {
+        font-size: 17px;
+    }
+
+    .container_experience_info_content_names {
+        align-self: center;
+        margin-top: 10px;
+    }
+
+    
+    .container_experience_info_content_names_first {
+        font-size: 20px;
+    }
+    .container_experience_info_content_names_second {
+        margin-top: 7px;
+        font-size: 13px;
+    }
 
 
 

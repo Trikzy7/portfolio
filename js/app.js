@@ -593,7 +593,7 @@ function displayAbout(main_content, main_aside, top_info) {
     let about_content_top  = create('div', about_content, null, 'about_content_top' ) ;
 
 
-        // ---------------- SLIDE 1
+        // ---------------- SLIDE ME
 //#region SLIDER 1
     let about_slide1 = create('div', about_content_top, null, 'about_slide') ;
     about_slide1.classList.add('slide_me') ;
@@ -621,7 +621,66 @@ function displayAbout(main_content, main_aside, top_info) {
 //#endregion SLIDER 1
 
 
-        // ---------------- SLIDE 2
+
+        // ---------------- SLIDE 
+  
+//#region SLIDER 6
+
+    let about_slide6 = create('div', about_content_top, null, 'about_slide') ;
+    about_slide6.classList.add('slide_experience') ;
+
+
+    create('h2', about_slide6, 'EXPERIENCE', 'slide_title') ;
+
+    // MAIN CONTAINER CONTENT
+    let container_experience_content = create('div', about_slide6, null, 'container_experience_content') ;
+
+
+    // TOP CONTAINER CONTENT
+    let container_experience_info = create('div', container_experience_content, null, 'container_experience_content_top') ;
+    
+    let container_experience_info_img = create('div', container_experience_info, null, 'container_experience_img');
+    let experience_img = create('img', container_experience_info_img, null, 'experience_img');
+    experience_img.src = "img/projects/caf74.png" ;
+
+
+    let container_experience_info_content = create('div', container_experience_info, null, 'container_experience_info_content');
+    create('p', container_experience_info_content, '2021 - 2022', 'experience_info_date');
+    let container_experience_info_content_names = create('div', container_experience_info_content, null, 'container_experience_info_content_names');
+    container_experience_info_content_names.innerHTML = `
+    
+        <p class="container_experience_info_content_names_first">
+            <span class="bold">CAF74</span>  (Club Alpin Français) - <span class="bold">Developer WEB</span> 
+        </p>
+
+        <p class="container_experience_info_content_names_second">
+            Annecy, France - Team Project (second year university)
+        </p>
+    
+    `;
+
+
+
+
+
+    // BOTTOM CONTAINER CONTENT
+    let container_experience_detailTxt = create('p', container_experience_content, null, 'container_experience_detailTxt') ;
+    container_experience_detailTxt.innerHTML = `
+    I realized with a group of 4 students a project for the CAF 74 (French Alpine Club) located in Annecy. It's a club that organises sports activities to allow people to share their sports activities together. <br> <br>
+
+    The project was carried out as part of the diploma but completely independently of the teachers. In order to put us in a real professional situation, we only discussed with the client. <br> <br>
+
+    The goal of the project was to implement features on the existing website to allow the reservation of equipment by members and the management of equipment by club volunteers.  
+    
+    `;
+
+
+
+//#endregion SLIDER 6
+
+
+
+        // ---------------- SLIDE DIPLOMA
 //#region SLIDER 2
     let about_slide2 = create('div', about_content_top, null, 'about_slide') ;
     about_slide2.classList.add('slide_diploma') ;
@@ -656,7 +715,7 @@ function displayAbout(main_content, main_aside, top_info) {
 //#endregion SLIDER 2
 
 
-        // ---------------- SLIDE 3
+        // ---------------- SLIDE SKILLS
 
 
 //#region SLIDER 3
@@ -677,7 +736,7 @@ function displayAbout(main_content, main_aside, top_info) {
 
 //#endregion SLIDER 3
 
-        // ---------------- SLIDE 4
+        // ---------------- SLIDE SKILLS AGAIN
 
 //#region SLIDER 4
     let about_slide4 = create('div', about_content_top, null, 'about_slide') ;
@@ -732,9 +791,10 @@ function displayAbout(main_content, main_aside, top_info) {
 
 
 
-        // ---------------- SLIDE 5
+        // ---------------- SLIDE REFERENCES
   
 //#region SLIDER 5
+
     let about_slide5 = create('div', about_content_top, null, 'about_slide') ;
     about_slide5.classList.add('slide_references') ;
 
@@ -778,7 +838,6 @@ function displayAbout(main_content, main_aside, top_info) {
 
 
 
-//#endregion TOP
 
 
 
