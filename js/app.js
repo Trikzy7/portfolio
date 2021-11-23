@@ -622,7 +622,7 @@ function displayAbout(main_content, main_aside, top_info) {
 
 
 
-        // ---------------- SLIDE 
+        // ---------------- SLIDE EXPERIENCE
   
 //#region SLIDER 6
 
@@ -790,6 +790,33 @@ function displayAbout(main_content, main_aside, top_info) {
 
 
 
+        // ---------------- SLIDE INTERESTS
+
+//#region SLIDER 7
+    let about_slide7 = create('div', about_content_top, null, 'about_slide') ;
+    about_slide7.classList.add('slide_interests') ;
+
+    create('h2', about_slide7, 'INTERESTS', 'slide_title') ;
+
+
+    let container_txt_img_slide7 =  create('div', about_slide7, null, 'container_txt_img_slide7') ;
+
+    let txt_slide7 = create('p', container_txt_img_slide7, null, 'txt_slide7') ;
+    txt_slide7.innerHTML = `
+    In my free time, I like to spend my energy in nature. Navigating between running/trailing and road/mountain biking, 
+    I like to follow training plans in order to improve in my sport. Successful competition or breaking personal bests are 
+    the best achievements. 
+    <br><br>
+    I am passionate about new technologies in its entirety. From new devices to new programming languages, I love to discover all the 
+    innovations.
+    ` ;
+
+    // let container_img_slide1 = create('div', container_txt_img_slide1, null, 'container_img_slide1')
+
+    let img_slide7 = create('img', container_txt_img_slide7, null, 'img_slide7') ;
+    img_slide7.src = "img/about/me_run.jpg" ;
+
+//#endregion SLIDER 7
 
         // ---------------- SLIDE REFERENCES
   
@@ -839,7 +866,7 @@ function displayAbout(main_content, main_aside, top_info) {
 
 
 
-
+//#endregion TOP
 
 
 
