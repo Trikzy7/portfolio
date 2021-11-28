@@ -1287,6 +1287,13 @@
 
 
 
+    .container_all_references::before, .container_all_references::after {
+        font-size: 18px;
+
+    }
+
+
+
 
 
 
