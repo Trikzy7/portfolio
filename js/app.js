@@ -299,7 +299,7 @@ function goToAbout(main_content, main_aside, top_info) {
                             let rectSlide = aAboutSlide.getBoundingClientRect() ;
                             // console.log(rectSlide.x);
         
-                            if (rectSlide.x < (rectContainer.x - 200) ) {
+                            if (rectSlide.x < (rectContainer.x - 300) ) {
                                 aAboutSlide.classList.remove('aboutSlideActive') ;
                             }
                             else if (rectSlide.x > rectContainer.x + rectContainer.width - 350) {
